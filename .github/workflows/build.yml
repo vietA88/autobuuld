@@ -21,13 +21,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # Bước này sẽ tự động cài đặt Gradle 8.5 trên máy build
+      # SỬA LẠI ĐƯỜNG DẪN TỪ actions/setup-gradle -> gradle/setup-gradle
       - name: Setup Gradle
-        uses: actions/setup-gradle@v3
+        uses: gradle/setup-gradle@v3
         with:
           gradle-version: '8.5'
 
-      # Chạy build bằng Gradle hệ thống (bỏ qua gradlew)
       - name: Build with Gradle
         run: gradle jar
 
