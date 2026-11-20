@@ -25,12 +25,12 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 21 # Đổi từ 17 sang 21 để phù hợp với Java 21
+    it.options.release = 21 // Đổi từ 17 sang 21 để phù hợp với Java 21
 }
 
 java {
     withSourcesJar()
-    sourceCompatibility = JavaVersion.VERSION_21 # Java 21
+    sourceCompatibility = JavaVersion.VERSION_21 // Java 21
     targetCompatibility = JavaVersion.VERSION_21
 }
 
