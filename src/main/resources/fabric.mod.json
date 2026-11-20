@@ -1,13 +1,12 @@
 {
   "schemaVersion": 1,
   "id": "autobuild",
-  "version": "${version}",
+  "version": "1.0.0",
   "name": "AutoBuild",
   "description": "Mod tự động xây công trình từ file schematic (.litematic) và tự động lấy vật liệu từ rương xung quanh.",
-  "authors": ["vietank78"],
+  "authors": ["vietA88"],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/autobuild/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": ["com.autobuild.AutoBuildMod"]
