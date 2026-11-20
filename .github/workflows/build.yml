@@ -15,24 +15,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      # 1. Cài đặt Java 21 (Bắt buộc cho Minecraft 1.21.x và Fabric Loom 1.11)
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
 
-      - name: Download and Setup Gradle
+      # 2. Tải và cài đặt Gradle 8.14 (Phiên bản tương thích với Fabric Loom 1.11)
+      - name: Download and Setup Gradle 8.14
         run: |
-          # Tải Gradle 8.5 trực tiếp về máy build (không cần file wrapper)
-          wget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O gradle.zip
+          wget -q https://services.gradle.org/distributions/gradle-8.14-bin.zip -O gradle.zip
           unzip -q gradle.zip
-          mv gradle-8.5 /opt/gradle-8.5
-          ln -sf /opt/gradle-8.5/bin/gradle /usr/local/bin/gradle
+          mv gradle-8.14 /opt/gradle-8.14
+          ln -sf /opt/gradle-8.14/bin/gradle /usr/local/bin/gradle
           gradle --version
 
+      # 3. Build mod
       - name: Build with Gradle
         run: gradle jar
 
+      # 4. Upload file .jar kết quả
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
